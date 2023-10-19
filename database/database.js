@@ -1,16 +1,15 @@
+
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const colors = require("colors");
 
-const dbUrl = "mongodb://localhost:27017/techFest";
+dotenv.config();
+mongoose.set("strictQuery", true);
+const connectDB = () => {
+  mongoose
+    .connect(process.env.MONGO_URI, {user: process.env.MONGO_USER, pass: process.env.MONGO_PWD, dbName: "techfest22"})
+    .then((res) => console.log("Connected to MongoDB".bgBlue));
+};
 
-mongoose
-  .connect(dbUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .catch((err) => {
-    console.log(err);
-  });
 
-mongoose.connection.on("connected", () => {
-  console.log("Mongoose connected");
-});
+module.exports = {connectDB};

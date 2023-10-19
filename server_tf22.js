@@ -1,4 +1,5 @@
-require("./database/database");
+const db = require("./database/database");
+db.connectDB();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
