@@ -2,7 +2,7 @@ require("./database/database");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const PORT = 4000;
+const PORT = 4022;
 const domain = require("./routes/domain");
 const coordinator = require("./routes/coordinator");
 const workshop = require("./routes/workshop");
